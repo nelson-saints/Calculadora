@@ -1,6 +1,7 @@
 # importar o tkinter
 from tkinter import *
 from tkinter import ttk
+import re
 
 
 # cores
@@ -49,6 +50,13 @@ def calcular():
     #imprimir na tela
     valor_texto.set(str(resultado))
 
+# funcao para apagar o ultimo digito
+def apagar():
+    global todos_valores
+    ultimo_valor = todos_valores[-1:]
+    todos_valores = todos_valores.translate(str.maketrans('','', ultimo_valor))
+    valor_texto.set(todos_valores)
+
 #funcao limpa tela
 def limpar_tela():
     global todos_valores
@@ -61,8 +69,11 @@ app_label.place(x=0, y=0)
 
 # criando botoes
 
-b_1 = Button(frame_corpo, command=limpar_tela, text="C", width=11, height=2, bg=cor4, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
-b_1.place(x=0, y=0)
+
+b_0 = Button(frame_corpo, command=limpar_tela, text="C", width=5, height=2, bg=cor4, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
+b_0.place(x=0, y=0)
+b_1 = Button(frame_corpo, command=apagar, text="<-", width=5, height=2, bg=cor4, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
+b_1.place(x=59, y=0)
 b_2 = Button(frame_corpo, command= lambda:entrar_valores('%'), text="%", width=5, height=2, bg=cor4, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
 b_2.place(x=118, y=0)
 b_3 = Button(frame_corpo, command= lambda:entrar_valores('/'), text="/", width=5, height=2, bg=cor5, fg=cor2, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
