@@ -49,12 +49,12 @@ def calcular():
 
     #imprimir na tela
     valor_texto.set(str(resultado))
+    todos_valores = ' '
 
 # funcao para apagar o ultimo digito
 def apagar():
     global todos_valores
-    ultimo_valor = todos_valores[-1:]
-    todos_valores = todos_valores.translate(str.maketrans('','', ultimo_valor))
+    todos_valores = todos_valores[:-1]
     valor_texto.set(todos_valores)
 
 #funcao limpa tela
