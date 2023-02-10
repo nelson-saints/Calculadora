@@ -1,4 +1,4 @@
-# importar o tkinter
+from controller import janela
 from tkinter import *
 from tkinter import ttk
 import re
@@ -11,10 +11,7 @@ cor3 = "#38576b" # Azul carregado
 cor4 = "#ECEFF1" # Cizenta
 cor5 = "#FFAB40" # Orange/Laranja
 
-janela = Tk()
-janela.title("Calculadora")
-janela.geometry("235x310")
-janela.config(bg=cor1)
+
 
 
 # criando frames
